@@ -28,14 +28,16 @@ counter = 0
 c_2 = 0
 div_block = select(doc, "ul.left_menu a")
 
-
+# parse menu links #
 for a in div_block:
     counter += 1
     li = soup(urlopen(url + a["href"]))
-    name =  select(li, "a.p_name")
+
+# find and parse mebel links #
+    name =  select(li, "a.p_name") #find
     if name:
         for b in name:
-            i_name = soup(urlopen(url + b["href"]))
+            i_name = soup(urlopen(url + b["href"])) # parse
             img = select(i_name, "a#link")
             mat = select(i_name, "ul.item_par")
             h3 = select(i_name, "h3")
