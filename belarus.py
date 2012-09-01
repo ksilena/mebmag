@@ -26,10 +26,8 @@ for a in select(doc, "ul.left_menu a"):
     li = soup(urlopen(url + a["href"]))
     name =  select(li, "a.p_name")
     if name:
-        href = select(
-
         for b in name:
-            i_name = soup(urlopen(url + b["href"])) 
+            i_name = soup(urlopen(url + b["href"]))
             img = select(i_name, "a#link")
             mat = select(i_name, "ul.item_par")
             h3 = select(i_name, "h3")
