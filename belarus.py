@@ -40,7 +40,7 @@ for a in div_block:
             i_name = soup(urlopen(url + b["href"])) # parse
             img = select(i_name, "a#link")
             mat = select(i_name, "ul.item_par")
-            h3 = select(i_name, "h3")
+            h3 = select(i_name, "h3")#чё ита?
             print "Название:", clean_str(h3[0])
             print clean_str(mat[0])
             print url + img[0]["href"]
