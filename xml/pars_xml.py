@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from xml.dom.minidom import *
-dom = xml.dom.minidom.parse("/home/zol/src/export201208261142.xml")
+dom = xml.dom.minidom.parse("export201208261142.xml")
 dom.normalize()
 def output_tree(node, level=0):
    if node.nodeType == node.TEXT_NODE:
