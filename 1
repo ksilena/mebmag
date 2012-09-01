@@ -1,0 +1,18 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+from BeautifulSoup import BeautifulSoup as soup
+from soupselect import select
+from urllib2 import urlopen
+import re
+
+kill_tag = re.compile('<[^<]*>')
+sub_quot = re.compile('&laquo; *| *&raquo;|&quot;')
+kill_space = re.compile('&nbsp;| +|\t+')
+kill_str = re.compile('\n|\r')
+
+url = "http://mkomfort.ru"
+doc = soup(urlopen(url))
+menu = select(doc, "div.menu")
+#soft = soup(urlopen(url + menu["href"]))
+print menu
+
