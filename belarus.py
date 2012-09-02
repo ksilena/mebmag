@@ -27,20 +27,23 @@ doc = soup(urlopen(url))
 counter = 0
 c_2 = 0
 div_block = select(doc, "ul.left_menu a")
-
 # parse menu links #
 for a in div_block:
     counter += 1
     li = soup(urlopen(url + a["href"]))
+    attr = select(li, "span.f_right a")
+    if len(attr)>0:
+            krovat = soup(urlopen(url + attr[0]["href"]))
+            name = select(krovat, "a.p_name")
+            for i in name:
+                    i_name = soup(urlopen(url + i["href"]))
+                    h3 = select(i_name, "h3")
+                    img = select(i_name, "a#link")
+                    mat = select(i_name, "ul.item_par")
+                    print "Название:", clean_str(h3[0])
+                    print clean_str(mat[0])
+                    if img:
+                        print url + img[0]["href"]
+                    print "=================================================="
 
-# find and parse mebel links #
-    name =  select(li, "a.p_name") #find
-    if name:
-        for b in name:
-            i_name = soup(urlopen(url + b["href"])) # parse
-            img = select(i_name, "a#link")
-            mat = select(i_name, "ul.item_par")
-            h3 = select(i_name, "h3")#чё ита?
-            print "Название:", clean_str(h3[0])
-            print clean_str(mat[0])
-            print url + img[0]["href"]
+         
