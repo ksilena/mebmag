@@ -15,4 +15,7 @@ def output_tree(node, level=0):
      for child in node.childNodes:
        output_tree(child, level+1)
 name =  dom.getElementsByTagName(u'Свойство')
-print name.tagName
+
+for i in name:
+   for j in i.childNodes:
+     print j.nodeName, j.nodeValue
